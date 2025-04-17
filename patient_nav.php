@@ -1,3 +1,10 @@
+<?php
+include 'connection.php';
+session_start();
+// $id=$_SESSION['id'];
+// var_dump($id);
+// exit();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +93,7 @@
                         </li>
                   </ul>
                   <div class="link-btn">
-                        <a href="review.php" class="btn-style-one">Reviews and Feedback</a>
+                        <a href="logout.php" class="btn-style-one">Patient Log Out</a>
                   </div>
             </div>
       </div>
@@ -110,33 +117,46 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                        <!-- <li class="active">
-                              <a href="index.html">Home</a>
-                        </li> -->
-                        <li>
-                              <a href="about.html">About</a>
+                        <li class="active">
+                              <a href="patient.php">Home</a>
                         </li>
                         <li>
-                              <a href="service.html">Service</a>
+                              <a href="patient_about.php">About</a>
                         </li>
                         <li>
-                              <a href="gallery.html">Gallery</a>
+                              <a href="patient_service.php">Service</a>
                         </li>
                         <li>
-                              <a href="team.html">Team</a>
+                              <a href="patient_gallery.php">Gallery</a>
+                        </li>
+                        <li class="dropdown bg-bg-dark">
+                             <a href="patient_viewdr.php">View Doctors List</a>
+                             
+                        </li>
+                        
+                       
+                         <li class="dropdown bg-bg-dark">
+                              <a href="#" id="P" class="dropdown-toggle" data-toggle="dropdown" role="button" >Appoinment
+                                    <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" >
+                                    <li >
+                                          <a style="color:black" href="appoinment.php" class=bg-info>New Appoinment</a>
+                                    </li>
+                                    <li>
+                                          <a style="color:black" href="view_appoinment.php"  class=bg-info>View Appoinment</a>
+                                    </li>
+                                    
+                                   
+                              </ul>
                         </li>
                         <li>
-                              <a href="login.php">Appointment</a>
+                              <a href="patient_medical_reports.php">Medical Reports</a>
                         </li>
                         <li>
-                              <a href="blog.html">Blog</a>
+                              <a href="patient_contact.php">Contact</a>
                         </li>
-                        <li>
-                              <a href="contact.php">Contact</a>
-                        </li>
-                        <!-- <li>
-                              <a href="logout.php">Log Out</a>
-                        </li> -->
+                      
                         <!-- <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
                                     <span class="caret"></span>

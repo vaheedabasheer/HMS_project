@@ -86,7 +86,7 @@
                         </li>
                   </ul>
                   <div class="link-btn">
-                        <a href="review.php" class="btn-style-one">Reviews and Feedback</a>
+                        <a href="logout.php" class="btn-style-one">Doctor/Staff Log Out</a>
                   </div>
             </div>
       </div>
@@ -110,62 +110,66 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                        <!-- <li class="active">
-                              <a href="index.html">Home</a>
-                        </li> -->
-                        <li>
-                              <a href="about.html">About</a>
+                        <li class="active">
+                              <a href="doctor.php">Home</a>
                         </li>
                         <li>
-                              <a href="service.html">Service</a>
+                              <a href="doctor_gallery.php">Gallery</a>
                         </li>
-                        <li>
-                              <a href="gallery.html">Gallery</a>
-                        </li>
-                        <li>
-                              <a href="team.html">Team</a>
-                        </li>
-                        <li>
-                              <a href="login.php">Appointment</a>
-                        </li>
-                        <li>
-                              <a href="blog.html">Blog</a>
-                        </li>
-                        <li>
-                              <a href="contact.php">Contact</a>
+                       <li>
+                              <a href="doctor_about.php">About</a>
                         </li>
                         <!-- <li>
-                              <a href="logout.php">Log Out</a>
+                              <a href="doctor_profile.php">My Profile</a>
                         </li> -->
-                        <!-- <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+                        <li class="dropdown bg-bg-dark">
+                              <a href="#" id="P" class="dropdown-toggle" data-toggle="dropdown" role="button" >My Profile
                                     <span class="caret"></span>
                               </a>
-                              <ul class="dropdown-menu">
-                                    <li>
-                                          <a href="#">Action</a>
+                              <ul class="dropdown-menu" >
+                                    <li >
+                                          <a style="color:black" href="doctor_add.php" class=bg-info>Add Profile</a>
                                     </li>
                                     <li>
-                                          <a href="#">Another action</a>
+                                          <a style="color:black" href="doctor_profile.php"  class=bg-info>View Profile</a>
                                     </li>
-                                    <li>
-                                          <a href="#">Something else here</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                          <a href="#">Separated link</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                          <a href="#">One more separated link</a>
-                                    </li>
+                                    
+                                   
                               </ul>
-                        </li> -->
+                        </li>
+                        <li>
+                              <a href="doctor_viewlist.php">View Doctors List</a>
+                        </li>
+                        
+                        <li>
+                              <a href="doctor_appoinmnet.php">View Appointments</a>
+                        </li>
+                        <li>
+                              <a href="doctor_patint_repo.php">patient Reports</a>
+                        </li>
+                      
+                       
+                      
                   </ul>
             </div>
             <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
 </nav>
+  <!--Page Title-->
+  <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
+    <div class="container">
+        <div class="title-text">
+            <h1>Staff/Doctor</h1>
+            <ul class="title-menu clearfix">
+                <li>
+                    <a href="doctor.php">home &nbsp;/</a>
+                </li>
+                <li>Staff/Doctor</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
 </body>
 </html>

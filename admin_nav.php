@@ -4,6 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+.dropbtn {
+
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown_ {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content  {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+.dropdown-content a {
+     
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+ 
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown_:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+    </style>
 </head>
 <body>
     
@@ -86,7 +127,7 @@
                         </li>
                   </ul>
                   <div class="link-btn">
-                        <a href="review.php" class="btn-style-one">Reviews and Feedback</a>
+                        <a href="logout.php" class="btn-style-one">Admin Log Out</a>
                   </div>
             </div>
       </div>
@@ -110,33 +151,60 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                        <!-- <li class="active">
-                              <a href="index.html">Home</a>
-                        </li> -->
-                        <li>
-                              <a href="about.html">About</a>
+                        <li class="active">
+                              <a href="admin.php">Home</a>
                         </li>
                         <li>
-                              <a href="service.html">Service</a>
+                              <a href="admin_about.php">About</a>
+                        </li>
+                       
+                        <li>
+                              <a href="gallery.php">Gallery</a>
+                        </li>
+                      
+                        <li class=" bg-bg-dark dropdown_">
+                              <a href="admin_team.php"  class="dropbtn"  role="button" >Team
+                                    <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-content" >
+                                    <li >
+                                          <a style="color:black" href="admin_team.php">View Team List</a>
+                                    </li>
+                                   
+                                    
+                                   
+                              </ul>
                         </li>
                         <li>
-                              <a href="gallery.html">Gallery</a>
+                              <a href="admin_view_appo.php">View Appoinments </a>
                         </li>
+                        
                         <li>
-                              <a href="team.html">Team</a>
+                              <a href="admin_view_repo.php">View Reports</a>
                         </li>
+
+                        <li class=" dropdown_">
+                              <a href="admin_reviews.php"  class="dropbtn"  role="button" > Reviews
+                                    <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-content" >
+                              <li >
+                                          <a style="color:black" href="admin_reviews.php">view Reviews </a>
+                                    </li>
+                                  
+                                   
+                                    
+                                    
+                                   
+                              </ul>
+                        </li>
+
+                       
+                        
                         <li>
-                              <a href="login.php">Appointment</a>
+                              <a href="admin_contact.php">Contact Us Messages </a>
                         </li>
-                        <li>
-                              <a href="blog.html">Blog</a>
-                        </li>
-                        <li>
-                              <a href="contact.php">Contact</a>
-                        </li>
-                        <!-- <li>
-                              <a href="logout.php">Log Out</a>
-                        </li> -->
+                       
                         <!-- <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
                                     <span class="caret"></span>

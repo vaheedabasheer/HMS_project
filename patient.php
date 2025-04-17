@@ -1,3 +1,11 @@
+<?php
+include 'connection.php';
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,165 +35,12 @@
 
 
 <body>
-  <div class="page-wrapper">
-    <!-- Preloader -->
-    <!-- <div class="preloader"></div> -->
-    <!-- Preloader -->
-
-  
-
-<!--header top-->
-<div class="header-top">
-      <div class="container clearfix">
-            <div class="top-left">
-                  <h6>Opening Hours : Saturday to Tuesday - 8am to 10pm</h6>
-            </div>
-            <div class="top-right">
-                  <ul class="social-links">
-                        <li>
-                              <a href="#">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                              </a>
-                        </li>
-                        <li>
-                              <a href="#">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                              </a>
-                        </li>
-                        <li>
-                              <a href="#">
-                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                              </a>
-                        </li>
-                        <li>
-                              <a href="#">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                              </a>
-                        </li>
-                        <li>
-                              <a href="#">
-                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                              </a>
-                        </li>
-                  </ul>
-            </div>
-      </div>
-</div>
-<!--header top-->
-
-<!--Header Upper-->
-<section class="header-uper">
-      <div class="container clearfix">
-            <div class="logo">
-                  <figure>
-                        <a href="index.html">
-                              <img src="images/logo.png" alt="" width="130">
-                        </a>
-                  </figure>
-            </div>
-            <div class="right-side">
-                  <ul class="contact-info">
-                        <li class="item">
-                              <div class="icon-box">
-                                    <i class="fa fa-envelope-o"></i>
-                              </div>
-                              <strong>Email</strong>
-                              <br>
-                              <a href="#">
-                                    <span>info@medic.com</span>
-                              </a>
-                        </li>
-                        <li class="item">
-                              <div class="icon-box">
-                                    <i class="fa fa-phone"></i>
-                              </div>
-                              <strong>Call Now</strong>
-                              <br>
-                              <span>+ (88017) - 123 - 4567</span>
-                        </li>
-                  </ul>
-                  <div class="link-btn">
-                        <a href="#" class="btn-style-one">Appoinment</a>
-                  </div>
-            </div>
-      </div>
-</section>
-<!--Header Upper-->
-
-
-<!--Main Header-->
-<nav class="navbar navbar-default">
-      <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                        aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                  </button>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                        <li class="active">
-                              <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                              <a href="about.html">About</a>
-                        </li>
-                        <li>
-                              <a href="service.html">Service</a>
-                        </li>
-                        <li>
-                              <a href="gallery.html">Gallery</a>
-                        </li>
-                        <li>
-                              <a href="team.html">Team</a>
-                        </li>
-                        <li>
-                              <a href="appointment.html">Appointment</a>
-                        </li>
-                        <li>
-                              <a href="blog.html">Blog</a>
-                        </li>
-                        <li>
-                              <a href="contact.html">Contact</a>
-                        </li>
-                        <!-- <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
-                                    <span class="caret"></span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                    <li>
-                                          <a href="#">Action</a>
-                                    </li>
-                                    <li>
-                                          <a href="#">Another action</a>
-                                    </li>
-                                    <li>
-                                          <a href="#">Something else here</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                          <a href="#">Separated link</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                          <a href="#">One more separated link</a>
-                                    </li>
-                              </ul>
-                        </li> -->
-                  </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-</nav>
-<!--End Main Header -->
-
-<!--=================================
+    <!-- nav  -->
+     <?php
+include 'patient_nav.php';
+?>
+    <!-- nav  -->
+  <!--=================================
 =            Page Slider            =
 ==================================-->
 <div class="hero-slider">
@@ -693,124 +548,42 @@
 
 <!--testimonial-section-->
 <section class="testimonial-section" style="background: url(images/testimonials/1.jpg);">
+            <?php
+        $data3=mysqli_query($con,"SELECT * FROM `review`");
+        ?>
     <div class="container">
         <div class="section-title text-center">
             <h3>What Our
                 <span>Patients Says</span>
             </h3>
         </div>
+       
         <div class="testimonial-carousel">
+        <?php
+                    while($row3=mysqli_fetch_assoc($data3))
+                    {
+                    ?>
             <!--Slide Item-->
             <div class="slide-item">
                 <div class="inner-box text-center">
                     <div class="image-box">
                         <figure>
-                            <img src="images/testimonials/1.png" alt="">
+                        <img src="review/<?php echo $row3['photo'];?>" alt="">
                         </figure>
                     </div>
-                    <h6>Adam Rose</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
+                    <h6><?php echo $row3['name'];?></h6>
+                    <p><?php echo $row3['email'];?></p>
+                    <p><?php echo $row3['message']; ?></p>
                 </div>
             </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/2.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>David Warner</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/3.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>Amy Adams</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/1.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>Adam Rose</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/2.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>David Warner</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/3.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>Amy Adams</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/1.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>Adam Rose</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/2.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>David Warner</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                            <img src="images/testimonials/3.png" alt="">
-                        </figure>
-                    </div>
-                    <h6>Amy Adams</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia consectetur, dolor sit amet, consectetur, numquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, at?</p>
-                </div>
-            </div>
+            <?php
+                    }
+                    ?>
         </div>
-    </div>
+       
+</div>
 </section>
+
 <!--End testimonial-section-->
 
 <!-- Contact Section -->
@@ -887,56 +660,7 @@
     </div>
 </div>
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-             <div class="contact-area">
-    <div class="section-title">
-        <h3>Request
-            <span>Appointment</span>
-        </h3>
-    </div>
-    <form name="contact_form" class="default-form contact-form" action="sendmail.php" method="post">
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    <input type="text" name="Name" placeholder="Name" required="">
-                </div>
-                <div class="form-group">
-                    <input type="email" name="Email" placeholder="Email" required="">
-                </div>
-                <div class="form-group">
-                    <select name="subject">
-                        <option>Departments</option>
-                        <option>Diagnostic</option>
-                        <option>Psychological</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    <input type="text" name="Phone" placeholder="Phone" required="">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                </div>
-                <div class="form-group">
-                    <select name="subject">
-                        <option>Doctor</option>
-                        <option>Diagnostic</option>
-                        <option>Psychological</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    <textarea name="form_message" placeholder="Your Message" required=""></textarea>
-                </div>
-                <div class="form-group text-center">
-                    <button type="submit" class="btn-style-one">submit now</button>
-                </div>
-            </div>
-        </div>
-    </form>
+            
 </div>                        
             </div>
         </div>                    
@@ -1097,4 +821,3 @@
 </body>
 
 </html>
-
