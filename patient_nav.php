@@ -1,8 +1,10 @@
 <?php
 include 'connection.php';
 session_start();
-// $id=$_SESSION['id'];
-// var_dump($id);
+$id=$_SESSION['id'];
+
+$name=$_SESSION['name'];
+// var_dump($name);
 // exit();
 ?>
 <!DOCTYPE html>
@@ -93,7 +95,7 @@ session_start();
                         </li>
                   </ul>
                   <div class="link-btn">
-                        <a href="logout.php" class="btn-style-one">Patient Log Out</a>
+                        <a href="logout.php" class="btn-style-one">Patient<br><span style="color:#FF0000"><?php echo $name?></span>  Log Out</a>
                   </div>
             </div>
       </div>

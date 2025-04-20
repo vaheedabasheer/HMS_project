@@ -5,6 +5,7 @@ if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
 }
+// $name=$_SESSION['name'];
 ?>
 <!DOCTYPE html>
 <html>

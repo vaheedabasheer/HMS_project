@@ -1,3 +1,10 @@
+<?php
+include 'connection.php';
+session_start();
+$name=$_SESSION['name'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +93,7 @@
                         </li>
                   </ul>
                   <div class="link-btn">
-                        <a href="logout.php" class="btn-style-one">Doctor/Staff Log Out</a>
+                        <a href="logout.php" class="btn-style-one">Doctor/Staff<br><span style="color:#FF0000"><?php echo $name?></span>  Log Out</a>
                   </div>
             </div>
       </div>

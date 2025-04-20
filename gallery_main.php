@@ -1,11 +1,3 @@
-<?php
-include 'connection.php';
-$data=mysqli_query($con,"SELECT * FROM `patient` INNER JOIN `register`ON patient.id=register.id");
-// var_dump($patient_id);
-// exit();
-
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -35,102 +27,154 @@ $data=mysqli_query($con,"SELECT * FROM `patient` INNER JOIN `register`ON patient
 
 
 <body>
+  <div class="page-wrapper">
+    <!-- Preloader -->
+    <!-- <div class="preloader"></div> -->
+    <!-- Preloader -->
+
   <?php
-  include 'admin_nav.php';
+  include 'navbar.php';
   ?>
 
 <!--Page Title-->
 <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
     <div class="container">
         <div class="title-text">
-            <h1>Admin Page</h1>
+            <h1>gallery</h1>
             <ul class="title-menu clearfix">
                 <li>
                     <a href="index.html">home &nbsp;/</a>
                 </li>
-                <li>Admin</li>
+                <li>gallery</li>
             </ul>
         </div>
     </div>
 </section>
 <!--End Page Title-->
-<br><br>
-<?php
-if(mysqli_num_rows($data)>0) 
-{
 
-
-?>
-<center><h3><span style="color:#48BDC5">Appoinments</span></h3></center>
-
-<section class="service-overview section">
+<section class="video-gallery">
     <div class="container">
         <div class="row">
-           <div class="col-md-12">
-           <table class="table table-success table-striped">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3>Collected Media
+                        <span>of Our Hospital</span>
+                    </h3>
+                    <p>Leverage agile frameworks to provide a robust synopsis for high level overv-
+                        <br>iews. Iterative approaches to corporate strategy...</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="video-gallery-item">
+                    <div class="image-holder">
+                        <img src="images/gallery/video-thumb-01.jpg" class="img-responsive" alt="video-gallery">
+                        <a data-fancybox href="https://www.youtube.com/watch?v=h-h5Mhlt6O0"><i class="fa fa-play"></i></a>
+                    </div>
+                    <h3>January 2018 Florida Conference</h3>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="video-gallery-item">
+                    <div class="image-holder">
+                        <img src="images/gallery/video-thumb-02.jpg" class="img-responsive" alt="video-gallery">
+                        <a data-fancybox href="https://www.youtube.com/watch?v=h-h5Mhlt6O0">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                    <h3>December 2017 los angeles Conference</h3>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="video-gallery-item">
+                    <div class="image-holder">
+                        <img src="images/gallery/video-thumb-03.jpg" class="img-responsive" alt="video-gallery">
+                        <a data-fancybox href="https://www.youtube.com/watch?v=h-h5Mhlt6O0">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                    <h3>November 2017 Texas Conference</h3>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="video-gallery-item">
+                    <div class="image-holder">
+                        <img src="images/gallery/video-thumb-04.jpg" class="img-responsive" alt="video-gallery">
+                        <a data-fancybox href="https://www.youtube.com/watch?v=h-h5Mhlt6O0">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                    <h3>October 2017 san francisco Conference</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <tr>
-    <th scope="col">Patient</th>
-    <th scope="col">Doctor</th>
-      <th scope="col">Department</th>
-      <th scope="col">Date</th>
-     <th scope="col">Time</th>
-     <th scope="col">Status</th>
-     <th scope="col">Actions</th>
-  </tr>
-    <?php
-   
-    ?>
- <?php
+<section class="gallery bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3>Collected Shots
+                        <span>of Our Hospital</span>
+                    </h3>
+                    <p>Leverage agile frameworks to provide a robust synopsis for high level overv-
+                        <br>iews. Iterative approaches to corporate strategy...</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-01.jpg" class="img-responsive" alt="gallery-image">
+                    <a data-fancybox="images" href="images/gallery/gallery-01.jpg"></a>
+                    <h3>Facility 01</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, in.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-02.jpg" class="img-responsive" alt="gallery-image">
+                    <a data-fancybox="images" href="images/gallery/gallery-02.jpg"></a>
+                    <h3>Facility 02</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, in.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-03.jpg" class="img-responsive" alt="gallery-image">
+                    <a data-fancybox="images" href="images/gallery/gallery-03.jpg"></a>
+                    <h3>Facility 03</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, in.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-04.jpg" class="img-responsive" alt="gallery-image">
+                    <a data-fancybox="images" href="images/gallery/gallery-04.jpg"></a>
+                    <h3>Facility 04</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, in.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-05.jpg" class="img-responsive" alt="gallery-image">
+                    <a data-fancybox="images" href="images/gallery/gallery-05.jpg"></a>
+                    <h3>Facility 05</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, in.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-06.jpg" class="img-responsive" alt="gallery-image">
+                    <a data-fancybox="images" href="images/gallery/gallery-06.jpg"></a>
+                    <h3>Facility 06</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, in.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-   
-while($row=mysqli_fetch_assoc($data))
- {
- ?>
-    <tr>
-      <td><?php echo $row['name'];?></td>
-      <td><?php $doc=$row['doctor'];
-          $doct=mysqli_query($con,"SELECT * FROM `doctor` INNER JOIN register ON doctor.id=register.id WHERE d_id='$doc'");
-      if(mysqli_num_rows($doct)>0) 
-      {
-        $row1=mysqli_fetch_assoc($doct);
-        $doctor_name=$row1['name'];
-        echo $doctor_name;
-      }
-      else{
-        echo "no data";
-      }
-      ?></td>
-      <td><?php echo $row['p_department'];?></td>
-      <td><?php echo $row['p_date'];?> </td>
-      <td><?php echo $row['p_time'];?></td>
-      <td><?php echo $row['status'];?></td>
-      <td><button><a href="admin_pa_cancel.php?id=<?php echo $row['p_id'];?>" onclick="return confirm('Are you sure want to delete this item?');" >Cancel</a></button></td>
- 
-    
-     <?php
- }
-     ?>
-    
-    </tr>
-  
-  
-</table>
-<?php
-}
-else
-{
-  ?>
-   <br><br><br>
-   <br>
- <center><h1><span style="color:#48BDC5">NO Appoinments</span></h1></center>
-  <?php
-}
-?>
-
-<br><br><br><br><br>
 <!--footer-main-->
-
 <footer class="footer-main">
   <div class="footer-top">
     <div class="container">
@@ -253,7 +297,6 @@ else
     </div>
   </div>
 </footer>
-
 <!--End footer-main-->
 
 </div>

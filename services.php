@@ -1,102 +1,7 @@
-<?php
-include 'connection.php';
-session_start();
-
-
-if(isset($_POST['submit']))
- {
-    $sel=$_POST['subject'];
-    if($sel=="admin")
-    {
-       $type="admin";
-    }
-    elseif($sel=="staff")
-    {
-        $type="Doctor/staff";
-    }
-    elseif($sel=="patient")
-    {
-        $type="Patient";
-    }
-    $name=$_POST['name'];
-    $dob=$_POST['dob'];
-    $phone=$_POST['phone'];
-  
-    $email=$_POST['email'];
-    $pass=$_POST['password'];
-  
-    mysqli_query($con,"INSERT INTO `login`(`email`, `password`, `user_role`) VALUES ('$email','$pass','$type')");
-    $id=mysqli_insert_id($con);
-    mysqli_query($con,"INSERT INTO `register`(`id`, `name`, `phone`, `dob`) VALUES ('$id','$name','$phone','$dob')");
-    echo "<script>alert ('registered successfully'); </script>";
- }
- if(isset($_POST['login']))
- {
-    
-    //  var_dump($type);
-    // exit();
-
-    $email=$_POST['email'];
-   
-    $pass=$_POST['password'];
-   
-$data=mysqli_query($con,"SELECT * FROM `login`  WHERE email='$email' AND password='$pass'");
-$ses=mysqli_fetch_assoc($data);
-
-$_SESSION['id']=$ses['id'];
-$id=$_SESSION['id'];
-$name_get=mysqli_query($con,"select * FROM register where id='$id'");
-$name_get1=mysqli_fetch_assoc($name_get);
-
-$_SESSION['name']=$name_get1['name'];
-// $name=$_SESSION['name'];
-// var_dump($name);
-// exit();
-
-$id=$_SESSION['id'];
-
-if(mysqli_num_rows($data)>0)
-{
-    $user=$ses['user_role'];
-//     var_dump($type);
-// exit();
-if($user=="admin")
-{
-     header("location:admin.php");
- }
- elseif($user=="Doctor/staff")
- {
-     header("location:doctor.php");
- }
- elseif($user=="Patient")
-{
-    header("location:patient.php");
-}
-    // header("location:index.php");
-  
-
-
-   
-}
-else{
-   echo "<script>alert ('incorrect email or password' );</script> ";
-}
-
-
-
- }
-//  $data1=mysqli_query($con,"SELECT * FROM `login` INNER JOIN `register` ON register.id=login.id WHERE login.id='$id'");
-
-// $ses1=mysqli_fetch_assoc($data1);
-// $user=ses1['user_role'];
-
-
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
-
   <meta charset="utf-8">
   <title>Medic | Medical HTML Template</title>
 
@@ -117,33 +22,30 @@ else{
   <!--Favicon-->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<!-- <script>
-      alert ("I am an alert box!");
-    </script> -->
+
 </head>
 
 
 <body>
+  <div class="page-wrapper">
+    <!-- Preloader -->
+    <!-- <div class="preloader"></div> -->
+    <!-- Preloader -->
 
-<!-- nav bar  -->
 <?php
  include 'navbar.php';
- 
-
- ?>
- <!-- nav bar  -->
- <!--End Main Header -->
+?>
 
 <!--Page Title-->
 <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
     <div class="container">
         <div class="title-text">
-            <h1>Login</h1>
+            <h1>service</h1>
             <ul class="title-menu clearfix">
                 <li>
                     <a href="index.html">home &nbsp;/</a>
                 </li>
-                <li>Login</li>
+                <li>service</li>
             </ul>
         </div>
     </div>
@@ -153,107 +55,61 @@ else{
 <section class="service-overview section">
     <div class="container">
         <div class="row">
-          
-            <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="content-block">
+                    <h2>Clinical And <br>Medical Education</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas eius optio repellendus quasi nisi vitae laboriosam explicabo eligendi sapiente in.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, dolorum esse tempora id architecto laboriosam.
+                    </p>
+                    <ul>
+                        <li><i class="fa fa-caret-right"></i>vitae laboriosam explicabo eligendi sapiente</li>
+                        <li><i class="fa fa-caret-right"></i>consectetur adipisicing elit. Beatae</li>
+                        <li><i class="fa fa-caret-right"></i>dolorum esse tempora id architecto</li>
+                        <li><i class="fa fa-caret-right"></i>optio repellendus quasi nisi vitae</li>
+                    </ul>
+                    <a href="#" class="btn btn-style-one">Appoint</a>
+                </div>
+            </div>
+            <div class="col-md-6">
                 <div class="accordion-section">
                     <div class="accordion-holder">
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
-                                        <a role="button" id="R" class="text-center" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Login
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Why Should I choose Medical Health
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                    <!-- <div class="panel-body">
-                                      
-                                    </div> -->
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                                        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                        synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" >
+                            <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingTwo">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
                                             aria-controls="collapseTwo">
-                                          <span style="color:red"> New User?</span>  Register Now 
+                                            What are the Centre’s visiting hours?
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                     
-                                
-
-<!-- Contact Section -->
-<section class="blog-section section style-three pb-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="contact-area style-two">
-                    <div class="section-title">
-                        <h3>Request <span>Registration</span></h3>
-                    </div>
-                    <form name="contact_form" class="default-form contact-form"  method="post">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <input type="text" name="name" placeholder="Name" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Email" required="">
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" name="phone" placeholder="Phone" required="">
-                                </div>
-                                                      
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                    <input type="password" name="password" id="txtPassword"  placeholder="Enter new password" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" id="txtConfirmPassword" placeholder="Confirm password" required="">
-                                </div>
-                               
-                                <div class="form-group">
-                                    <input type="date" name="dob" placeholder="Date of birth" required="" >
-                                    
-                                    <!-- <i class="fa fa-calendar" aria-hidden="true"></i> -->
-                                </div> 
-                               
-                                  
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                    <select name="subject" required>
-                                        <option>User Role</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="staff">Doctor/staff</option>
-                                        <option value="patient">Patient</option>
-                                    </select>
-                                </div>   
-                                <div class="form-group text-center">
-                                    <button type="submit" name="submit" class="btn-style-one" onclick="return Validate()">Register now</button>
-                                </div>                            
-                            </div>
-                        </div>
-                    </form>
-                </div>                      
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="appointment-image-holder">
-                    <figure>
-                        <img src="images/background/appoinment.jpg" alt="Appointment">
-                    </figure>
-                </div>                       
-            </div>
-        </div>                    
-    </div>
-</section>
-
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                                        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                        synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                     </div>
                                 </div>
                             </div>
@@ -262,52 +118,18 @@ else{
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
                                             aria-controls="collapseThree">
-                                         <span style="color:red">Already Existing user?</span>  Login Now
+                                            How many visitors are allowed?
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div class="panel-body">
-                                    <section class="blog-section section style-three pb-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="contact-area style-two">
-                    <div class="section-title">
-                        <h3>Request <span>Login</span></h3>
-                    </div>
-                    <form name="contact_form" class="default-form contact-form"  method="post">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Email" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" placeholder="password" required="">
-                                </div>
-                                
-                                <div class="form-group text-center">
-                                    <button type="submit" name="login" class="btn-style-one">Login now</button>
-                                </div>  
-                                                         
-                            </div>
-                          
-                        </div>
-                    </form>
-                </div>                      
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="appointment-image-holder">
-                    <figure>
-                        <img src="images/background/appoinment.jpg" alt="Appointment">
-                    </figure>
-                </div>                       
-            </div>
-        </div>                    
-    </div>
-</section>
-                             
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                                        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                        synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                     </div>
                                 </div>
                             </div>
@@ -315,11 +137,6 @@ else{
                     </div>
                 </div>
             </div>
-
-
-<br><br>
-
-            
             <div class="service-box col-md-12">
                 <div class="row">
                     <div class="col-md-6">
@@ -351,43 +168,6 @@ else{
             </div>
         </div>
     </div>
-</section>
-
-<section class="testimonial-section" style="background: url(images/testimonials/1.jpg);">
-            <?php
-        $data3=mysqli_query($con,"SELECT * FROM `review`");
-        ?>
-    <div class="container">
-        <div class="section-title text-center">
-            <h3>What Our
-                <span>Patients Says</span>
-            </h3>
-        </div>
-       
-        <div class="testimonial-carousel">
-        <?php
-                    while($row3=mysqli_fetch_assoc($data3))
-                    {
-                    ?>
-            <!--Slide Item-->
-            <div class="slide-item">
-                <div class="inner-box text-center">
-                    <div class="image-box">
-                        <figure>
-                        <img src="review/<?php echo $row3['photo'];?>" alt="">
-                        </figure>
-                    </div>
-                    <h6><?php echo $row3['name'];?></h6>
-                    <p><?php echo $row3['email'];?></p>
-                    <p><?php echo $row3['message']; ?></p>
-                </div>
-            </div>
-            <?php
-                    }
-                    ?>
-        </div>
-       
-</div>
 </section>
 
 <!--Service Section-->
@@ -635,17 +415,7 @@ else{
 <div class="scroll-to-top scroll-to-target" data-target=".header-top">
   <span class="icon fa fa-angle-up"></span>
 </div>
-<script type="text/javascript">
-    function Validate() {
-        var password = document.getElementById("txtPassword").value;
-        var confirmPassword = document.getElementById("txtConfirmPassword").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-    }
-</script>
+
 <script src="plugins/jquery.js"></script>
 <script src="plugins/bootstrap.min.js"></script>
 <script src="plugins/bootstrap-select.min.js"></script>

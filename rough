@@ -42,5 +42,16 @@ echo "Age is: $age years";
 ?>
 
 
+<?php
+$dob = '2020-08-20';
+$dobObject = new DateTime($dob);
+// echo $dobObject;
+$today = new DateTime();
+
+$age = $today->diff($dobObject)->y;
+
+echo $age;
+?>
+
 SELECT * FROM `login` INNER JOIN register on login.id=register.id INNER JOIN patient ON patient.id=login.id INNER JOIN medical_report ON medical_report.p_id=patient.p_id INNER JOIN doctor ON doctor.d_id=patient.doctor;
 SELECT * FROM `patient` INNER JOIN medical_report ON patient.p_id=medical_report.p_id INNER JOIN register ON register.id=patient.id INNER JOIN doctor on doctor.id=medical_report.id"

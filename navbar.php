@@ -114,29 +114,29 @@
                               <a href="index.html">Home</a>
                         </li> -->
                         <li>
-                              <a href="about.html">About</a>
+                              <a href="about.php">About</a>
                         </li>
                         <li>
-                              <a href="service.html">Service</a>
+                              <a href="services.php">Service</a>
                         </li>
                         <li>
-                              <a href="gallery.html">Gallery</a>
+                              <a href="gallery_main.php">Gallery</a>
                         </li>
                         <li>
-                              <a href="team.html">Team</a>
+                              <a href="team.php">Team</a>
                         </li>
                         <li>
                               <a href="login.php">Appointment</a>
                         </li>
                         <li>
-                              <a href="blog.html">Blog</a>
+                              <a href="blog.php">Blog</a>
                         </li>
                         <li>
                               <a href="contact.php">Contact</a>
                         </li>
-                        <!-- <li>
-                              <a href="logout.php">Log Out</a>
-                        </li> -->
+                        <li>
+                              <a href="login.php"><span style="color:red"><b>LogIn</b></span></a>
+                        </li>
                         <!-- <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
                                     <span class="caret"></span>
