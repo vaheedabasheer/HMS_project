@@ -2,6 +2,14 @@
 include 'connection.php';
 session_start();
 
+header("Cache-control: no-cache, no-store, must-revalidate");
+header("Pragma:no-cache"); //HTTP 1.0
+header("Expires: 0"); //proxies
+if(!isset($_SESSION['id']))
+{
+  header("location:login.php");
+  exit();
+}
 if(isset($_POST['submit']))
 {
   $date=$_POST['date'];
@@ -349,6 +357,20 @@ header("location:view_appoinment.php");
   <span class="icon fa fa-angle-up"></span>
 </div>
 
+<script>
+  if(window.history.replaceState)
+{
+  window.history.replaceState(null, null, window.location.href);
+
+}
+window.onpageshow = function(event)
+{
+  if(event.persisted)
+{
+  window.location.reload();
+}
+};
+</script>
 <script src="plugins/jquery.js"></script>
 <script src="plugins/bootstrap.min.js"></script>
 <script src="plugins/bootstrap-select.min.js"></script>
